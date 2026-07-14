@@ -1,10 +1,14 @@
 package com.example.GestorStock.salesOrder.entity;
 
 import com.example.GestorStock.salesOrder.entity.enums.SalesOrderStatus;
+import com.example.GestorStock.salesOrderItem.entity.SalesOrderItem;
+import com.example.GestorStock.stockMovement.entity.StockMovement;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "sales_orders")
@@ -37,6 +41,14 @@ public class SalesOrder {
 
     @Column(columnDefinition = "TEXT")
     private String notes;
+
+    @Builder.Default
+    @OneToMany(mappedBy = "salesOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SalesOrderItem> salesOrderItems = new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "salesOrder")
+    private List<StockMovement> stockMovements = new ArrayList<>();
 
     @PrePersist
     protected void onCreate() {
