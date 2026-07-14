@@ -18,7 +18,7 @@ public class PurchaseOrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPurchaseOrderItem;
+    private Long idPurchaseOrderItem;
 
     @Column(name = "quantity_ordered", nullable = false)
     private Integer quantityOrdered;
@@ -26,8 +26,8 @@ public class PurchaseOrderItem {
     @Column(name = "quantity_received", nullable = false)
     private Integer quantityReceived;
 
-    @Column(name = "unit_price", nullable = false, precision = 10, scale = 2)
-    private BigDecimal unitPrice;
+    @Column(name = "unit_cost", nullable = false, precision = 10, scale = 2)
+    private BigDecimal unitCost;
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "purchase_order_id", nullable = false)
@@ -36,4 +36,11 @@ public class PurchaseOrderItem {
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "product_id", nullable = false)
     private Product product;
+
+    @PrePersist
+    protected void onCreate() {
+        if (this.quantityReceived == null) {
+            this.quantityReceived = 0;
+        }
+    }
 }
