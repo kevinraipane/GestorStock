@@ -1,7 +1,7 @@
-package com.example.GestorStock.purchase_order_item.entity;
+package com.example.GestorStock.purchaseOrderItem.entity;
 
 import com.example.GestorStock.product.entity.Product;
-import com.example.GestorStock.purchase_order.entity.PurchaseOrder;
+import com.example.GestorStock.purchaseOrder.entity.PurchaseOrder;
 import jakarta.persistence.*;
 import lombok.*;
 
