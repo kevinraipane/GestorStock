@@ -1,4 +1,4 @@
-package com.example.GestorStock.purchase_order.entity.enums;
+package com.example.GestorStock.purchaseOrder.entity.enums;
 
 public enum PurchaseOrderStatus {
     DRAFT,
