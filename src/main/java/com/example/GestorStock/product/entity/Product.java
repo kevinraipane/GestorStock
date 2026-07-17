@@ -38,7 +38,7 @@ public class Product {
     private BigDecimal price;
 
     @Column(name = "reorder_point", nullable = false)
-    private int reorderPoint;
+    private Integer reorderPoint;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

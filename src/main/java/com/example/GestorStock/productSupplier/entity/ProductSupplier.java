@@ -1,4 +1,4 @@
-package com.example.GestorStock.product_supplier.entity;
+package com.example.GestorStock.productSupplier.entity;
 
 import com.example.GestorStock.product.entity.Product;
 import com.example.GestorStock.supplier.entity.Supplier;

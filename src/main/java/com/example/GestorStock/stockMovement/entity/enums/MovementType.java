@@ -1,4 +1,4 @@
-package com.example.GestorStock.stock_movement.entity.enums;
+package com.example.GestorStock.stockMovement.entity.enums;
 
 public enum MovementType {
     INBOUND,

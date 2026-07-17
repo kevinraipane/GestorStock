@@ -1,4 +1,4 @@
-package com.example.GestorStock.saler_order.entity.enums;
+package com.example.GestorStock.salesOrder.entity.enums;
 
 public enum SalesOrderStatus {
     DRAFT,
