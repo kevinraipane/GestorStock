@@ -1,6 +1,7 @@
 package com.example.GestorStock.common.globalHandler.handler;
 
 import com.example.GestorStock.common.globalHandler.customException.BusinessRuleException;
+import com.example.GestorStock.common.globalHandler.customException.DuplicateResourceException;
 import com.example.GestorStock.common.globalHandler.customException.ResourceNotFoundException;
 import com.example.GestorStock.common.globalHandler.dto.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
@@ -33,8 +34,8 @@ public class GlobalExceptionHandler {
     }
 
     // ERROR 409
-    @ExceptionHandler(BusinessRuleException.class)
-    public ResponseEntity<ErrorResponseDto> handlerBusinessRule(BusinessRuleException ex){
+    @ExceptionHandler({BusinessRuleException.class, DuplicateResourceException.class})
+    public ResponseEntity<ErrorResponseDto> handlerBusinessRule(RuntimeException ex){
         ErrorResponseDto response = buildError(HttpStatus.CONFLICT, ex.getMessage());
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
